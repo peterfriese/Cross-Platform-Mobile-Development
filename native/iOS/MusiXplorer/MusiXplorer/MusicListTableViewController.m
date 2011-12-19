@@ -10,25 +10,36 @@
 
 
 @interface MusicListTableViewController()
-
-@property (strong, nonatomic) NSMutableDictionary *images;
+@property (strong, nonatomic) UISearchDisplayController *searchController;
 @property (strong, nonatomic) NSArray *albums;
 
 - (void)fetchedData:(NSData *)responseData;
-- (void)fetchData;
+- (void)fetchData:(NSString *)searchTerm;
 @end
 
 
 @implementation MusicListTableViewController
 
-@synthesize images;
+@synthesize searchController;
 @synthesize albums;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-        self.images = [[NSMutableDictionary alloc] init];
+        UISearchBar *searchBar = [[UISearchBar alloc] init];
+        searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
+        [searchBar sizeToFit];
+        searchBar.delegate = self;
+        self.tableView.tableHeaderView = searchBar;
+        
+        searchController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+        searchController.delegate = self;
+        searchController.searchResultsDataSource = self;
+        searchController.searchResultsDelegate = self;
+        
+        self.title = @"Music";
     }
     return self;
 }
@@ -38,7 +49,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self fetchData];
 }
 
 - (void)viewDidUnload
@@ -107,7 +117,6 @@
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
     if (json) {
         id results = [json objectForKey:@"results"];
-        NSLog(@"Result:%@", results);
         if ([results respondsToSelector:@selector(objectAtIndex:)]) {
             NSArray *resultsArray = (NSArray *)results;
             albums = [resultsArray filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"collectionType == 'Album' && amgArtistId != NULL"]];
@@ -118,13 +127,21 @@
     
 }
 
-- (void)fetchData
+- (void)fetchData:(NSString *)searchTerm
 {
-    NSURL *url = [NSURL URLWithString:@"http://itunes.apple.com/search?term=sophie+ellis-bextor&limit=200&country=DE&entity=album&attribute=artistTerm"];
+    NSString *searchUrl = [NSString stringWithFormat:@"http://itunes.apple.com/search?term=%@&limit=200&country=DE&entity=album&attribute=artistTerm", searchTerm];
+    NSURL *url = [NSURL URLWithString:searchUrl];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSData *data = [NSData dataWithContentsOfURL:url];        
         [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
     });
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    NSString *urlEncoded = [searchString stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+    [self fetchData:urlEncoded];
+    return YES;
 }
 
 @end
