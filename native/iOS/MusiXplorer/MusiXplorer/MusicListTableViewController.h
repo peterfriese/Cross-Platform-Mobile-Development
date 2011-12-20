@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MusicListTableViewController : UITableViewController<UISearchDisplayDelegate, UISearchBarDelegate>
+#import "BaseTableViewController.h"
+
+@interface MusicListTableViewController : BaseTableViewController<UISearchDisplayDelegate, UISearchBarDelegate>
 
 @end
