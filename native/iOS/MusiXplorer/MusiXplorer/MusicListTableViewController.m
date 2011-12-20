@@ -7,6 +7,7 @@
 //
 
 #import "MusicListTableViewController.h"
+#import "AlbumTrackListingViewController.h"
 
 @implementation MusicListTableViewController
 
@@ -23,7 +24,6 @@
 
 - (UITableViewCell *)setupCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Configure the cell...
     id element = [self.elements objectAtIndex:[indexPath row]];
     
     cell.textLabel.text = [element objectForKey:@"collectionName"];    
@@ -39,13 +39,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    
+    NSLog(@"Elemenst: %@", self.elements);
+    
+    id element = [self.elements objectAtIndex:[indexPath row]];
+    
+    AlbumTrackListingViewController *albumTrackListingViewController = [[AlbumTrackListingViewController alloc] init];
+    albumTrackListingViewController.albumId = [element objectForKey:@"collectionId"];
+    [self.navigationController pushViewController:albumTrackListingViewController animated:YES];
 }
 
 #pragma mark - Data fetching
 
 - (NSArray *)filterResults:(NSArray *)searchresults
 {
+    // by filtering all Albums that do have an AMG artist id, we make sure we don't get any samplers and other trash
     return [searchresults filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"collectionType == 'Album' && amgArtistId != NULL"]];
 }
 

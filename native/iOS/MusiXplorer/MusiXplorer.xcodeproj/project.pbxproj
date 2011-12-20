@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		88D131DE14A13136008E5C75 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D131DD14A13136008E5C75 /* BaseTableViewController.m */; };
+		88D131E114A141D0008E5C75 /* AlbumTrackListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D131E014A141D0008E5C75 /* AlbumTrackListingViewController.m */; };
 		88F6EC07149F8DE500932CC1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F6EC06149F8DE500932CC1 /* UIKit.framework */; };
 		88F6EC09149F8DE500932CC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F6EC08149F8DE500932CC1 /* Foundation.framework */; };
 		88F6EC0B149F8DE500932CC1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F6EC0A149F8DE500932CC1 /* CoreGraphics.framework */; };
@@ -20,6 +21,8 @@
 /* Begin PBXFileReference section */
 		88D131DC14A13136008E5C75 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
 		88D131DD14A13136008E5C75 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
+		88D131DF14A141D0008E5C75 /* AlbumTrackListingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumTrackListingViewController.h; sourceTree = "<group>"; };
+		88D131E014A141D0008E5C75 /* AlbumTrackListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumTrackListingViewController.m; sourceTree = "<group>"; };
 		88F6EC02149F8DE500932CC1 /* MusiXplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusiXplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F6EC06149F8DE500932CC1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		88F6EC08149F8DE500932CC1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -85,6 +88,8 @@
 				88F6EC1D149F8E6E00932CC1 /* MusicListTableViewController.h */,
 				88F6EC1E149F8E6E00932CC1 /* MusicListTableViewController.m */,
 				88F6EC0D149F8DE500932CC1 /* Supporting Files */,
+				88D131DF14A141D0008E5C75 /* AlbumTrackListingViewController.h */,
+				88D131E014A141D0008E5C75 /* AlbumTrackListingViewController.m */,
 			);
 			path = MusiXplorer;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 				88F6EC17149F8DE500932CC1 /* AppDelegate.m in Sources */,
 				88F6EC1F149F8E6E00932CC1 /* MusicListTableViewController.m in Sources */,
 				88D131DE14A13136008E5C75 /* BaseTableViewController.m in Sources */,
+				88D131E114A141D0008E5C75 /* AlbumTrackListingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
