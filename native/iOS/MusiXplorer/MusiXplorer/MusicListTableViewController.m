@@ -21,35 +21,17 @@
 
 #pragma mark - Table view data source
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)setupCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
-    
     // Configure the cell...
     id element = [self.elements objectAtIndex:[indexPath row]];
+    
     cell.textLabel.text = [element objectForKey:@"collectionName"];    
     cell.detailTextLabel.text = [element objectForKey:@"artistName"];
-    NSString *thumbUrl = (NSString *)[element objectForKey:@"artworkUrl60"];
     
-    dispatch_queue_t concurrentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
-    dispatch_async(concurrentQueue, ^{
-        if (thumbUrl != nil && ![thumbUrl isKindOfClass:[NSNull class]]) {
-            dispatch_sync(concurrentQueue, ^{
-                NSURL *imageUrl = [NSURL URLWithString:thumbUrl];
-                NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
-                UIImage *image = [UIImage imageWithData:imageData];
-                dispatch_sync(dispatch_get_main_queue(), ^{
-                    [cell.imageView setImage:image];
-                    [cell setNeedsLayout];
-                });                
-            });
-        }
-    });
+    NSString *thumbUrl = (NSString *)[element objectForKey:@"artworkUrl60"];
+    [self fetchImageForCell:cell fromUrl:thumbUrl];
+    
     return cell;
 }
 
