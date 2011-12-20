@@ -10,6 +10,6 @@
 
 #import "BaseTableViewController.h"
 
-@interface MusicListTableViewController : BaseTableViewController<UISearchDisplayDelegate, UISearchBarDelegate>
+@interface MusicListTableViewController : BaseTableViewController
 
 @end

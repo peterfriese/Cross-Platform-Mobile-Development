@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BaseTableViewController : UITableViewController
+@interface BaseTableViewController : UITableViewController<UISearchDisplayDelegate, UISearchBarDelegate>
 
 // should be overridden by subclasses
 - (NSURL *)urlForSearchTerm:(NSString *)searchTerm;

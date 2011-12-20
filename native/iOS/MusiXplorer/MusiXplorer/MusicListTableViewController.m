@@ -8,32 +8,12 @@
 
 #import "MusicListTableViewController.h"
 
-
-@interface MusicListTableViewController()
-@property (strong, nonatomic) UISearchDisplayController *searchController;
-@end
-
-
 @implementation MusicListTableViewController
-
-@synthesize searchController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-        UISearchBar *searchBar = [[UISearchBar alloc] init];
-        searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
-        [searchBar sizeToFit];
-        searchBar.delegate = self;
-        self.tableView.tableHeaderView = searchBar;
-        
-        searchController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
-        searchController.delegate = self;
-        searchController.searchResultsDataSource = self;
-        searchController.searchResultsDelegate = self;
-        
         self.title = @"Music";
     }
     return self;
@@ -91,13 +71,6 @@
 {
     NSString *searchUrl = [NSString stringWithFormat:@"http://itunes.apple.com/search?term=%@&limit=200&country=DE&entity=album&attribute=artistTerm", searchTerm];
     return [NSURL URLWithString:searchUrl];    
-}
-
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
-{
-    NSString *urlEncoded = [searchString stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
-    [self fetchData:urlEncoded];
-    return YES;
 }
 
 @end

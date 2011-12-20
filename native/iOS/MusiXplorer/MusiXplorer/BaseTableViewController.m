@@ -9,14 +9,34 @@
 #import "BaseTableViewController.h"
 
 @interface BaseTableViewController ()
-
+@property (strong, nonatomic) UISearchDisplayController *searchController;
 @end
-
 
 
 @implementation BaseTableViewController
 
 @synthesize elements;
+@synthesize searchController;
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        UISearchBar *searchBar = [[UISearchBar alloc] init];
+        searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
+        [searchBar sizeToFit];
+        searchBar.delegate = self;
+        self.tableView.tableHeaderView = searchBar;
+        
+        searchController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+        searchController.delegate = self;
+        searchController.searchResultsDataSource = self;
+        searchController.searchResultsDelegate = self;
+    }
+    return self;
+}
+
 
 #pragma mark - View lifecycle
 
@@ -67,6 +87,17 @@
     }
     
 }
+
+#pragma mark - UISearchDispalyControllerDelegate
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    NSString *urlEncoded = [searchString stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+    [self fetchData:urlEncoded];
+    return YES;
+}
+
+
 
 
 @end
