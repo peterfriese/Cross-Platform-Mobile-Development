@@ -17,7 +17,7 @@
 - (UITableViewCell *)setupCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
 
 // don't override
-- (void)fetchImageForCell:(UITableViewCell *)cell fromUrl:(NSString *)url;
+- (void)updateImageForCell:(UITableViewCell *)cell fromUrl:(NSString *)url;
 
 // fetching data is performed by these two methods
 - (void)fetchData:(NSString *)searchTerm;

@@ -30,7 +30,7 @@
     cell.detailTextLabel.text = [element objectForKey:@"artistName"];
     
     NSString *thumbUrl = (NSString *)[element objectForKey:@"artworkUrl60"];
-    [self fetchImageForCell:cell fromUrl:thumbUrl];
+    [self updateImageForCell:cell fromUrl:thumbUrl];
     
     return cell;
 }

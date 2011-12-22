@@ -46,7 +46,7 @@
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@", [element objectForKey:@"artistName"], [element objectForKey:@"collectionName"]];
     
     NSString *artworkUrl = [element objectForKey:@"artworkUrl60"];
-    [self fetchImageForCell:cell fromUrl:artworkUrl];
+    [self updateImageForCell:cell fromUrl:artworkUrl];
     
     return cell;
 }
