@@ -237,10 +237,12 @@
 		88F6EC1B149F8DE500932CC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Peter Friese (GB8JX7TGVR)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MusiXplorer/MusiXplorer-Prefix.pch";
 				INFOPLIST_FILE = "MusiXplorer/MusiXplorer-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "588E15C9-2FFF-4323-83C3-18931D865D2D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -248,10 +250,12 @@
 		88F6EC1C149F8DE500932CC1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Peter Friese (GB8JX7TGVR)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MusiXplorer/MusiXplorer-Prefix.pch";
 				INFOPLIST_FILE = "MusiXplorer/MusiXplorer-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "588E15C9-2FFF-4323-83C3-18931D865D2D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
