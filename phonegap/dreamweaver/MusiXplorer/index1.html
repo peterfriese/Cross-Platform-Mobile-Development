@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery Mobile Web App</title>
+<link href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" rel="stylesheet" type="text/css"/>
+<script src="http://code.jquery.com/jquery-1.5.min.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div data-role="page">
+	<div data-role="header" data-position="fixed">
+		<h1>Navigation</h1>
+	</div>
+	<div data-role="content" >
+		<ul data-role="listview" data-dividertheme="d" style="margin-top: 0;" data-filter="true" data-inset="true">
+<li data-role="list-divider">Royal Family</li>
+<li><a href="#nav1"><img src="http://img.freebase.com/api/trans/image_thumb/en/henry_viii_of_england?pad=1&errorid=%2Ffreebase%2Fno_image_png&maxheight=64&mode=fillcropmid&maxwidth=64" />
+				<h3>Henry VIII</h3>
+				<p>Reign 37 Years</p>
+				</a></li>
+<li><a href="#nav1">George V</a></li>
+<li><a href="#nav1">Prince of Wales</a></li>
+<li><a href="#nav1">Elizabeth I</a></li>
+<li><a href="#nav1">Elizabeth II</a></li>
+<li data-role="list-divider">Prime Miniseters</li>
+<li><a href="#nav2">Winston Churchill</a></li>
+<li><a href="#nav2">Tony Blare</a></li>
+<li><a href="#nav2">David Cameron</a></li>
+		</ul>
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#nav1" class="ui-btn-active">Royals</a></li>
+				<li><a href="#nav2">Leaders</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div data-role="page" id="nav1" data-position="fixed">
+	<div data-role="header">
+		<h1>Royal Family</h1>
+	</div>
+	<div data-role="content">
+		<p>Members and relatives of the British Royal Family historically represented the monarch in various places throughout the British Empire, sometimes for extended periods as viceroys, or for specific ceremonies or events. Today, they often perform ceremonial and social duties throughout the United Kingdom and abroad on behalf of the UK, but, aside from the monarch, have no constitutional role in the affairs of government. This is the same for the other realms of the Commonwealth though the family there acts on behalf of, is funded by, and represents the sovereign of that particular state, and not the United Kingdom.</P>
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<h4>Royal Family</h4>
+	</div>
+</div>
+<div data-role="page" id="nav2" data-position="fixed">
+	<div data-role="header">
+		<h1>Prime Ministers</h1>
+	</div>
+	<div data-role="content"> The Prime Minister of the United Kingdom of Great Britain and Northern Ireland is the Head of Her Majesty's Government in the United Kingdom. The Prime Minister and Cabinet (consisting of all the most senior ministers, who are government department heads) are collectively accountable for their policies and actions to the Sovereign, to Parliament, to their political party and ultimately to the electorate. The current Prime Minister, David Cameron, was appointed on 11 May 2010.</div>
+	<div data-role="footer" data-position="fixed">
+		<h4>Prime Minister</h4>
+	</div>
+</div>
+
+<div data-role="page" id="page">
+	<div data-role="header">
+		<h1>Page One</h1>
+	</div>
+	<div data-role="content">
+		<ul data-role="listview">
+			<li><a href="#page2">Page Two</a></li>
+			<li><a href="#page3">Page Three</a></li>
+			<li><a href="#page4">Page Four</a></li>
+		</ul>
+	</div>
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div>
+</div>
+<div data-role="page" id="page2">
+	<div data-role="header">
+		<h1>Page Two</h1>
+	</div>
+	<div data-role="content"> Content </div>
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div>
+</div>
+<div data-role="page" id="page3">
+	<div data-role="header">
+		<h1>Page Three</h1>
+	</div>
+	<div data-role="content"> Content </div>
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div>
+</div>
+<div data-role="page" id="page4">
+	<div data-role="header">
+		<h1>Page Four</h1>
+	</div>
+	<div data-role="content"> Content </div>
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div>
+</div>
+</body>
+</html>

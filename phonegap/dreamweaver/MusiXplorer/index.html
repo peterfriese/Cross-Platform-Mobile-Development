@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery Mobile Web App</title>
+<link href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" rel="stylesheet" type="text/css"/>
+<script src="http://code.jquery.com/jquery-1.5.min.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js" type="text/javascript"></script>
+<script src="js/app.js"></script>
+</head>
+<body>
+
+	<div data-role="page">
+		<div data-role="header" data-position="fixed">
+			<h1>MusiXplorer!</h1>
+		</div>
+		<div data-role="fieldcontain">
+    		<input type="search" name="searchField" id="searchField" value=""	/>
+			<a data-inline="true" data-role="button" href="#" class="ui-btn ui-btn-inline ui-btn-corner-all ui-shadow ui-btn-up-c" onClick="javascript:getTweets()"><span aria-hidden="true" class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Go</span></span></a>
+		</div>
+		<div data-role="content" >
+			<ul data-role="listview" data-dividertheme="d" id="items">
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
